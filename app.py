@@ -7,7 +7,9 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST']) # To render Homepage
 def home_page():
-    return '<h1>hello sahil<h1>'
+    DATABASE_URL = os.environ['DATABASE_URL']
+    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    return '<h1>hello sahil padhiyar<h1>'
 
 @app.route('/math', methods=['POST'])  # This will be called from UI
 def math_operation():
