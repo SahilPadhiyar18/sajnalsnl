@@ -7,9 +7,12 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST']) # To render Homepage
 def home_page():
-    DATABASE_URL = os.environ['DATABASE_URL']
+    DATABASE_URL = 'postgres://qhkjicbidbltki:ff7899d0f2ef26bd2c754f6a7219d94b5c4d58de6073ad2d68d700eedb704473@ec2-44-197-128-108.compute-1.amazonaws.com:5432/d623bc8jc1utqt'
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-    return '<h1>hello sahil padhiyar<h1>'
+
+#     DATABASE_URL = os.environ['DATABASE_URL']
+#     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    return '<h1>heo sahil padhiyar<h1>'
 
 @app.route('/math', methods=['POST'])  # This will be called from UI
 def math_operation():
